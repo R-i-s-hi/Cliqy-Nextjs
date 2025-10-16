@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { BellIcon, HomeIcon, UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -29,7 +29,7 @@ export function DesktopNavbar() {
             </Link>
           </Button>
           <Button variant="ghost" className="flex items-center gap-2" asChild>
-            <Link href="/"
+            <Link href="/profile/user"
             >
               <UserIcon className="w-4 h-4" />
               <span className="hidden lg:inline">Profile</span>
