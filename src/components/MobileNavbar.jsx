@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
-import { useAuth, SignInButton, SignOutButton } from "@clerk/nextjs";
+import { useAuth, SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
@@ -20,6 +20,11 @@ export function MobileNavbar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { isSignedIn } = useAuth();
   const { theme, setTheme } = useTheme();
+
+  const {user} = useUser();
+  
+  const safeUsername =
+  user?.username ?? user?.emailAddresses?.[0]?.emailAddress?.split('@')[0];
 
   return (
     <div className="flex md:hidden items-center space-x-2">
@@ -46,22 +51,22 @@ export function MobileNavbar() {
           </SheetHeader>
           <nav className="flex flex-col space-y-4 mt-6">
             <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
-              <Link href="/">
+              <Link href="/" onClick={() => setTimeout(() => setShowMobileMenu(false), 200)}>
                 <HomeIcon className="w-4 h-4" />
                 Home
               </Link>
             </Button>
 
-            {isSignedIn ? (
+            {isSignedIn && safeUsername ? (
               <>
                 <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
-                  <Link href="/notifications">
+                  <Link href="/notifications" onClick={() => setTimeout(() => setShowMobileMenu(false), 200)}>
                     <BellIcon className="w-4 h-4" />
                     Notifications
                   </Link>
                 </Button>
                 <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
-                  <Link href="/profile">
+                  <Link href={`/profile/${safeUsername}`} onClick={() => setTimeout(() => setShowMobileMenu(false), 200)}>
                     <UserIcon className="w-4 h-4" />
                     Profile
                   </Link>
