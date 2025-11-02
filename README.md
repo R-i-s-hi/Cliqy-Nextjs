@@ -50,6 +50,14 @@ Built with **Next.js (App Router)**, **Prisma + PostgreSQL**, **Clerk Auth**, **
 
 ---
 
+### 🔗 Connect with me
+
+-📍 Delhi, India
+- 💼 [**LinkedIn**](https://www.linkedin.com/in/rishabh-singh-0684882a6/)
+- ✉️ tcrr2005@gmail.com
+
+---
+
 ## ⚙️ Run Locally
 
 ```bash
