@@ -7,8 +7,7 @@ Built with **Next.js (App Router)**, **Prisma + PostgreSQL**, **Clerk Auth**, **
 
 ## 🌍 Live Demo
 
-🔗 **Live Site:** (Coming soon)  
-🎥 **Video Demo:** (Add link here)
+🔗 [**Live Site:**](https://cliqy-nextjs.vercel.app/)  
 
 ---
 
